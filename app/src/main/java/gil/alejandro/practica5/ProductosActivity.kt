@@ -1,6 +1,7 @@
 package gil.alejandro.practica5
 
 import android.content.Context
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,13 +24,14 @@ class ProductosActivity : AppCompatActivity() {
 
         var listview: ListView = findViewById(R.id.listview) as ListView
 
-
         var adaptador: AdaptadorProductos = AdaptadorProductos(this, menu)
         listview.adapter = adaptador
     }
         fun agregarProductos(option:String?){
             when(option){
                 "Antojitos"->{
+                    val imagen: ImageView = findViewById(R.id.imageView)
+                    imagen.setImageResource(R.drawable.antojitos)
                     menu.add(
                         Product("Quesadillas", R.drawable.quesadillas,
                             "Rellenas con su carne favorita, servidas con ensalada - Filled with your choice of meat, served with salad.\n"+
@@ -43,21 +45,35 @@ class ProductosActivity : AppCompatActivity() {
                     menu.add(
                         Product("Gringas", R.drawable.gringas,
                             "Tortilla de harina con queso, carne al pastor y piña - Flour tortilla with cheese marinated pork and pineapple\n" +
-                                    "\n", 7.99))
+                                    "\n", 7.99)
+                    )
                     menu.add(
                         Product("Sinconizadas", R.drawable.sincronizadas,
                             "Tortilla de harina rellena con queso y jamon. Se sirve con lechuga, crema y guacamole - Sandwich of Two four tortillas filled with ham and cheese. Served with lettuce, sour cream, and guacamole.\n" +
-                                    "\n", 7.69))
+                                    "\n", 7.69)
+                    )
                     menu.add(
                         Product("Sopes", R.drawable.sopes,
                             "Tortilla gruesa cubierta de frijoles, tu carne favorita, lechuga, queso fresco y crema - Fried thick tortilla with beans, your choice of meat, lettuce, fresh cheese, sour cream and tomatoes.\n" +
-                                    "\n", 3.56))
+                                    "\n", 3.56)
+                    )
                     menu.add(
                         Product("Tostadas", R.drawable.tostadas,
                             "Tortilla frita con frijoles, tu carne favorita, lechuga, queso fresco, crema y jitomate - Fried tortilla with beans, your choice of meat, lettuce, fresh cheese, sour cream and tomatoes.\n" +
-                                    "\n", 3.56))
+                                    "\n", 3.56)
+                    )
+                    menu.add(
+                        Product("Coctel Mixto", R.drawable.coctel,
+                            "Mixed cocktail", 21.99)
+                    )
+                    menu.add(
+                        Product("Coctel de Camarón", R.drawable.coctel,
+                            "Shrimp cocktail", 16.49)
+                    )
                 }
                 "Especialidades"->{
+                    val imagen: ImageView = findViewById(R.id.imageView)
+                    imagen.setImageResource(R.drawable.especialidades)
                     menu.add(
                         Product("Mojarra Frita", R.drawable.mojarra,
                             "Tilapia frita servida con lechuga, cebolla, jitomate, aguacate y tortillas - Fried tilapia served with lettuce, onions, tomatoes, avocado and tortillas.\n"+
@@ -69,17 +85,41 @@ class ProductosActivity : AppCompatActivity() {
                                     "\n", 6.99)
                     )
                     menu.add(
-                        Product("Botana con camarones", R.drawable.botanacamarones,
-                            "\n" +
-                                    "\n", 24.99)
+                        Product("Botana de Camarones al Mojo de Ajo", R.drawable.botanacamarones,
+                            "", 19.99)
                     )
                     menu.add(
-                        Product("Cubetazo", R.drawable.cubetazo,
-                            "\n" +
-                                    "\n", 24.99)
+                        Product("Botana de Camarones a la Diabla", R.drawable.botanacamarones,
+                            "", 19.99)
+                    )
+                    menu.add(
+                        Product("Torre de Camarón Negro", R.drawable.ceviche,
+                            "", 16.99)
+                    )
+                    menu.add(
+                        Product("Botana de Pulpo a la Diabla", R.drawable.ceviche,
+                            "Servido totopos, cebolla frita, arroz, lechuga y pico de gallo - Served with chips, grill onions, rice, lettuce and pico de gallo.", 24.99)
+                    )
+                    menu.add(
+                        Product("Botana de Pulpo al Mojo de Ajo", R.drawable.botanacamarones,
+                            "Servido totopos, cebolla frita, arroz, lechuga y pico de gallo - Served with chips, grill onions, rice, lettuce and pico de gallo.", 24.99)
+                    )
+                    menu.add(
+                        Product("Pulpo Zarandeado", R.drawable.ceviche,
+                            "", 35.00)
+                    )
+                    menu.add(
+                        Product("Platillos de Camarón al Mojo de Ajo", R.drawable.botanacamarones,
+                            "", 18.99)
+                    )
+                    menu.add(
+                        Product("Platillos de Camarón a la Diabla", R.drawable.botanacamarones,
+                            "", 18.99)
                     )
                 }
                 "Combinations"->{
+                    val imagen: ImageView = findViewById(R.id.imageView)
+                    imagen.setImageResource(R.drawable.combinations)
                     menu.add(
                         Product("Traditional Taco Combo", R.drawable.combinationtaco,
                             "Tortilla de Maíz y tu carne favorita. Servido con arroz y frijoles - Corn taco, your choice of meat, served with rice and beans.\n"+
@@ -122,19 +162,94 @@ class ProductosActivity : AppCompatActivity() {
                     )
                 }
                 "Tortas"->{
+                    val imagen: ImageView = findViewById(R.id.imageView)
+                    imagen.setImageResource(R.drawable.tortas)
                     menu.add(
                         Product("Torta Regular", R.drawable.torta,
-                            "All tortas come with lettuce, onions, tomatoes, avocado, sour cream, jalapeno pepper and your choice of meat.\n"+
-                                    "\n", 12.99)
+                            "All tortas come with lettuce, onions, tomatoes, avocado, sour cream, jalapeno pepper and your choice of meat.\n", 12.99)
                     )
                     menu.add(
                         Product("Torta -Milanesa de Res o Pollo", R.drawable.tortamilanesa,
-                            "Breaded Steak or Chicken.\n"+
-                                    "\n", 13.99)
+                            "Breaded Steak or Chicken.\n", 13.99)
+                    )
+                    menu.add(
+                        Product("Torta Cubana", R.drawable.tortacubana,
+                            "Chorizo, asada, jamon, pastor y queso Mexican sausage, steak, marinated pork, ham, and cheese.\n", 13.99)
+                    )
+                    menu.add(
+                        Product("Torta Mixta", R.drawable.tortamixta,
+                            "Chorizo, asada y pastor./ Mexican sausage, steak and marinated pork.\n",13.99)
+                    )
+                    menu.add(
+                        Product("Small Mexican Torta", R.drawable.smallmexican,
+                            "Bolillo bread sandwich with your of meat, shredded lettuce, avocado, tomato, onion and sour cream.\n", 7.39)
+                    )
+                }
+                "Sopas"->{
+                    val imagen: ImageView = findViewById(R.id.imageView)
+                    imagen.setImageResource(R.drawable.sopas)
+                    menu.add(
+                        Product("Pozole", R.drawable.pozole,
+                            "Weekends only.", 5.99)
+                    )
+                    menu.add(
+                        Product("Menudo", R.drawable.menudo,
+                            "Wednesday to Sunday.", 5.99)
+                    )
+                    menu.add(
+                        Product("Caldo de Res", R.drawable.caldores,
+                            "", 5.99)
+                    )
+                    menu.add(
+                        Product("Caldo de Camarón", R.drawable.caldocamaron,
+                            "Shrimp soup", 13.99)
+                    )
+                    menu.add(
+                        Product("Sopa de Mariscos", R.drawable.sopamariscos,
+                            "Seafood soup", 19.99)
+                    )
+                }
+                "Drinks"->{
+                    val imagen: ImageView = findViewById(R.id.imageView)
+                    imagen.setImageResource(R.drawable.drinks)
+                    menu.add(
+                        Product("Michelada", R.drawable.michelada,
+                            "", 3.75)
+                    )
+                    menu.add(
+                        Product("Jarritos", R.drawable.jarritos,
+                            "", 5.75)
+                    )
+                    menu.add(
+                        Product("Caguamas", R.drawable.caguama,
+                            "", 5.75)
+                    )
+                    menu.add(
+                        Product("Caguamas Micheladas", R.drawable.caguamamichelada,
+                            "", 2.75)
+                    )
+                    menu.add(
+                        Product("Charolazo", R.drawable.charolazo,
+                            "", 9.75)
+                    )
+                    menu.add(
+                        Product("Cubeta Six", R.drawable.cubetasix,
+                            "", 9.75)
+                    )
+                    menu.add(
+                        Product("Cubetazo", R.drawable.cubetazo,
+                            "", 9.75)
+                    )
+                    menu.add(
+                        Product("Mexican Beer", R.drawable.mexicanbeer,
+                            "", 2.75)
+                    )
+                    menu.add(
+                        Product("Sodas", R.drawable.sodas,
+                            "", 2.75)
                     )
                 }
             }
-
         }
 }
 private class AdaptadorProductos: BaseAdapter {
